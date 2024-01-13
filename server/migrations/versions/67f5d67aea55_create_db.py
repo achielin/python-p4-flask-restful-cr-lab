@@ -1,24 +1,25 @@
 """create db
 
-Revision ID: 67f5d67aea55
-Revises: 
-Create Date: 2023-01-13 11:03:18.230084
-
+evision ID: 284f22749a0b
+Revises: 67f5d67aea55
+Create Date: 2024-01-12 13:05:38.527277
 """
 from alembic import op
 import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '67f5d67aea55'
-down_revision = None
+revision = '284f22749a0b'
+down_revision = '67f5d67aea55'
 branch_labels = None
 depends_on = None
 
 
 def upgrade():
-    pass
-
-
-def downgrade():
-    pass
+    
+    op.create_table('plants',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(), nullable=True),
+    sa.Column('image', sa.String(), nullable=True),
+    sa.Column('price', sa.Float(), nullable=True),
+    sa.PrimaryKeyConstraint('id')
